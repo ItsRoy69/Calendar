@@ -11,7 +11,7 @@ import { CountrySelector } from "../CountrySelector/CountrySelector";
 import { TypeSelector } from "../TypeSelector/TypeSelector";
 
 export const Toolbar = () => {
-  const { currentMonth, currentYear, selectedDate, setSelectedDate } =
+  const { currentMonth, currentYear, selectedDate, setSelectedDate, isYearlyView, toggleView } =
     useContext(CalendarContext);
 
   return (
@@ -39,6 +39,13 @@ export const Toolbar = () => {
           data-testid="chevron-double-right"
         />
       </div>
+      <button
+        onClick={toggleView}
+        className="w-40 h-10 mb-0.5 space-x-1 text-sm bg-white border rounded-md outline-none border-slate-300 focus:ring-2 ring-blue-300 ring-offset-1"
+        data-testid="toggle-view-button"
+      >
+        {isYearlyView ? "Monthly View" : "Yearly View"}
+      </button>
       <div className="flex space-x-2">
         <CountrySelector />
         <TypeSelector />

@@ -48,6 +48,8 @@ describe("Header test", () => {
           setSelectedCountry: jest.fn(),
           setSelectedDate: jest.fn(),
           setSelectedHolidayType: jest.fn(),
+          isYearlyView: false,
+          toggleView: jest.fn(),
         }}
       >
         <Header />

@@ -49,6 +49,8 @@ describe("TypeSelector test", () => {
           setSelectedCountry: jest.fn(),
           setSelectedDate: jest.fn(),
           setSelectedHolidayType: setSelectedHolidayTypeMock,
+          isYearlyView: false,
+          toggleView: jest.fn(),
         }}
       >
         <TypeSelector />
@@ -56,9 +58,9 @@ describe("TypeSelector test", () => {
     );
 
     // Click on the button to open the dropdown
-    fireEvent.click(screen.getByText('someHolidayType'));
+    fireEvent.click(screen.getByText("someHolidayType"));
 
     // Now find and click the reset button within the dropdown
-    fireEvent.click(screen.getByTestId('reset-button'));
+    fireEvent.click(screen.getByTestId("reset-button"));
   });
 });

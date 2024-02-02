@@ -1,4 +1,10 @@
-import { render, screen, cleanup, fireEvent, waitFor } from "@testing-library/react";
+import {
+  render,
+  screen,
+  cleanup,
+  fireEvent,
+  waitFor,
+} from "@testing-library/react";
 import "@testing-library/jest-dom";
 import { Toolbar } from "../components/Toolbar/Toolbar";
 import { CalendarContext } from "../context/CalendarContext";
@@ -31,22 +37,25 @@ describe("Toolbar test", () => {
     ];
     render(
       <CalendarContext.Provider
-      value={{
-        currentMonth: "February",
-        currentYear: "2024",
-        datesInMonth,
-        holidayTypes: ["none"],
-        isFetchingHolidays: false,
-        selectedCountry: {
-          code: "US", name: "United States",
-          imgSrc: ""
-        },
-        selectedDate: new Date(2024, 1, 24),
-        selectedHolidayType: "someHolidayType",
-        setSelectedCountry: jest.fn(),
-        setSelectedDate: setSelectedDateMock,
-        setSelectedHolidayType: jest.fn(),
-      }}
+        value={{
+          currentMonth: "February",
+          currentYear: "2024",
+          datesInMonth,
+          holidayTypes: ["none"],
+          isFetchingHolidays: false,
+          selectedCountry: {
+            code: "US",
+            name: "United States",
+            imgSrc: "",
+          },
+          selectedDate: new Date(2024, 1, 24),
+          selectedHolidayType: "someHolidayType",
+          setSelectedCountry: jest.fn(),
+          setSelectedDate: setSelectedDateMock,
+          setSelectedHolidayType: jest.fn(),
+          isYearlyView: false,
+          toggleView: jest.fn(),
+        }}
       >
         <Toolbar />
       </CalendarContext.Provider>

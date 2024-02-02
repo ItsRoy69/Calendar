@@ -22,6 +22,8 @@ describe("CountrySelector test", () => {
     setSelectedCountry: jest.fn(),
     setSelectedDate: jest.fn(),
     setSelectedHolidayType: jest.fn(),
+    isYearlyView: false,
+    toggleView: jest.fn(),
   };
 
   test("Should render the component", () => {

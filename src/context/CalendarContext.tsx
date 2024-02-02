@@ -21,13 +21,17 @@ export interface ICalendarContext {
   setSelectedCountry: React.Dispatch<React.SetStateAction<ICountry>>;
   datesInMonth: Array<Array<IDay>>;
   isFetchingHolidays: boolean;
+  isYearlyView: boolean;
+  toggleView: () => void;
 }
 
 export const CalendarContext = createContext<ICalendarContext>(
   {} as ICalendarContext
 );
 
-export const CalendarProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+export const CalendarProvider: React.FC<{ children: React.ReactNode }> = ({
+  children,
+}) => {
   const [selectedHolidayType, setSelectedHolidayType] = useState<
     string | undefined
   >();
@@ -35,7 +39,7 @@ export const CalendarProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   const [selectedCountry, setSelectedCountry] = useState(DEFAULT_COUNTRY);
   const [datesInMonth, setDatesInMonth] = useState<Array<Array<IDay>>>([]);
   const [holidayTypes, setHolidayTypes] = useState<Array<string>>([]);
-
+  const [isYearlyView, setIsYearlyView] = useState(false);
   const currentMonth = format(selectedDate, "LLL");
   const currentYear = format(selectedDate, "yyyy");
 
@@ -43,6 +47,10 @@ export const CalendarProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     year: currentYear,
     country: selectedCountry.code,
   });
+
+  const toggleView = () => {
+    setIsYearlyView((prev) => !prev);
+  };
 
   useEffect(() => {
     let events: Array<IEvent> = [];
@@ -82,6 +90,8 @@ export const CalendarProvider: React.FC<{ children: React.ReactNode }> = ({ chil
         setSelectedCountry,
         setSelectedDate,
         setSelectedHolidayType,
+        isYearlyView,
+        toggleView,
       }}
     >
       {children}

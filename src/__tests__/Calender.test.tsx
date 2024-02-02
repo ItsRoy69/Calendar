@@ -38,14 +38,17 @@ describe("Calendar test", () => {
           holidayTypes: ["none"],
           isFetchingHolidays: false,
           selectedCountry: {
-            code: "US", name: "United States",
-            imgSrc: ""
+            code: "IN",
+            name: "India",
+            imgSrc: "",
           },
           selectedDate: new Date(2024, 1, 24),
           selectedHolidayType: "someHolidayType",
           setSelectedCountry: jest.fn(),
           setSelectedDate: jest.fn(),
           setSelectedHolidayType: jest.fn(),
+          isYearlyView: false,
+          toggleView: jest.fn(),
         }}
       >
         <Calendar />
