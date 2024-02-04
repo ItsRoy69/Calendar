@@ -1,30 +1,19 @@
-# React + TypeScript + Vite
+# Calendar Web App Readme
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This Calendar Web App is built using React, TypeScript, Vite, and TailwindCSS. It allows users to seamlessly manage their schedules and includes a feature that fetches holidays from [Calendarific](https://calendarific.com/). The app is hosted on https://calendar-itsroy69.vercel.app/
 
-Currently, two official plugins are available:
+## Getting Started
+1. Clone the repository: `git clone https://github.com/ItsRoy69/Calendar.git`
+2. Install dependencies: `npm install`
+3. Move to https://calendarific.com/ and get an API key for holidays. 
+4. Include an environment file named `.env` and inside that include ```VITE_APP_KEY=``` with the API key
+5. Run the development : `npm run dev`
+6. Open your browser and visit `http://localhost:5173` to view the app.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Testing
+1. Used Jest for testing the webapp.
+2. Since there is used "Jest" and website includes framework so include the secret API key in place of "import.meta.env.VITE_APP_KEY" in useHolidays.ts file to save from the unnecessary protection issue.
+3. Run : `npm test`
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Live Demo
+Visit the live demo https://calendar-itsroy69.vercel.app/
